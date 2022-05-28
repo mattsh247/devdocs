@@ -456,7 +456,7 @@ $.classify = function (string) {
 
 $.framify = function (fn, obj) {
   if (window.requestAnimationFrame) {
-    return (...args) => requestAnimationFrame(fn.bind(obj, args));
+    return (...args) => requestAnimationFrame(fn.bind(obj, ...args));
   } else {
     return fn;
   }
