@@ -240,14 +240,13 @@ $.scrollParent = function (el) {
   return el;
 };
 
-$.scrollTo = function (el, parent, position = "center", options = {}) {
+$.scrollTo = function (el, parent, position, options) {
   if (!el) {
     return;
   }
 
-  if (parent == null) {
-    parent = $.scrollParent(el);
-  }
+  options = options || {};
+  parent = parent ?? $.scrollParent(el);
   if (!parent) {
     return;
   }
@@ -261,7 +260,7 @@ $.scrollTo = function (el, parent, position = "center", options = {}) {
   const { top } = $.offset(el, parent);
   const { offsetTop } = parent.firstElementChild;
 
-  switch (position) {
+  switch (position || "center") {
     case "top":
       parent.scrollTop =
         top - offsetTop - (options.margin != null ? options.margin : 0);
