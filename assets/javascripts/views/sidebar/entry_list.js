@@ -2,7 +2,7 @@
 app.views.EntryList = (function() {
   class EntryList extends app.views.PaginatedList {
     constructor(entries1) {
-      super(arguments);
+      super();
       this.entries = entries1;
     }
 

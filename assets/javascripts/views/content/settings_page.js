@@ -4,7 +4,7 @@ var ref,
 ref = app.views.SettingsPage = (function() {
   class SettingsPage extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.onChange = this.onChange.bind(this);
       this.onClick = this.onClick.bind(this);
     }

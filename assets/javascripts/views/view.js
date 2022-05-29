@@ -1,7 +1,9 @@
 app.View = (function() {
   class View {
-    constructor() {
-      this.setupElement();
+    constructor(el) {
+      console.log(el);
+      debugger;
+      this.setupElement(el);
       if (this.el.className) {
         this.originalClassName = this.el.className;
       }
@@ -15,11 +17,15 @@ app.View = (function() {
       this.refreshElements();
     }
 
-    setupElement() {
+    setupElement(el) {
       var key, ref, value;
-      if (this.el == null) {
-        this.el = typeof this.constructor.el === 'string' ? $(this.constructor.el) : this.constructor.el ? this.constructor.el : document.createElement(this.constructor.tagName || 'div');
-      }
+      this.el = this.el
+        ? this.el
+        : typeof el === "string"
+        ? $(el)
+        : el
+        ? el
+        : document.createElement(this.constructor.tagName || "div");
       if (this.constructor.attributes) {
         ref = this.constructor.attributes;
         for (key in ref) {
@@ -36,6 +42,7 @@ app.View = (function() {
         for (name in ref) {
           selector = ref[name];
           this[name] = this.find(selector);
+          if (!this[name]) console.warn(this, name, selector);
         }
       }
     }
@@ -58,9 +65,9 @@ app.View = (function() {
 
     resetClass() {
       var i, len, name, ref;
-      this.el.className = this.originalClassName || '';
+      this.el.className = this.originalClassName || "";
       if (this.constructor.className) {
-        ref = this.constructor.className.split(' ');
+        ref = this.constructor.className.split(" ");
         for (i = 0, len = ref.length; i < len; i++) {
           name = ref[i];
           this.addClass(name);
@@ -148,7 +155,7 @@ app.View = (function() {
 
     delay(fn, ...args) {
       var delay;
-      delay = typeof args[args.length - 1] === 'number' ? args.pop() : 0;
+      delay = typeof args[args.length - 1] === "number" ? args.pop() : 0;
       return setTimeout(fn.bind(this, ...args), delay);
     }
 
@@ -252,7 +259,6 @@ app.View = (function() {
       this.deactivate();
       $.remove(this.el);
     }
-
   };
 
   $.extend(View.prototype, Events);

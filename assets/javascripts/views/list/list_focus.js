@@ -4,7 +4,7 @@ var ref,
 ref = app.views.ListFocus = (function() {
   class ListFocus extends app.View {
     constructor(el1) {
-      super(arguments);
+      super(el1);
       this.blur = this.blur.bind(this);
       this.onDown = this.onDown.bind(this);
       this.onUp = this.onUp.bind(this);
@@ -12,7 +12,6 @@ ref = app.views.ListFocus = (function() {
       this.onEnter = this.onEnter.bind(this);
       this.onSuperEnter = this.onSuperEnter.bind(this);
       this.onClick = this.onClick.bind(this);
-      this.el = el1;
       this.focusOnNextFrame = $.framify(this.focus, this);
     }
 

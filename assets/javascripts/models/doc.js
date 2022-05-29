@@ -4,7 +4,7 @@ app.models.Doc = class Doc extends (
   // Attributes: name, slug, type, version, release, db_size, mtime, links
 
   constructor() {
-    super(...arguments);
+    super();
     this.reset(this);
     this.slug_without_version = this.slug.split("~")[0];
     this.fullName = `${this.name}` + (this.version ? ` ${this.version}` : "");

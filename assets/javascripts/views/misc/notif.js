@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Notif = (function() {
   class Notif extends app.View {
     constructor(type, options = {}) {
-      super(arguments);
+      super();
       this.onClick = this.onClick.bind(this);
       this.type = type;
       this.options = options;

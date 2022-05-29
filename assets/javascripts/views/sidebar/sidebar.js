@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Sidebar = (function() {
   class Sidebar extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.resetHoverOnMouseMove = this.resetHoverOnMouseMove.bind(this);
       this.resetHover = this.resetHover.bind(this);
       this.showResults = this.showResults.bind(this);

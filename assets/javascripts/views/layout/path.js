@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Path = (function() {
   class Path extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.onClick = this.onClick.bind(this);
       this.afterRoute = this.afterRoute.bind(this);
     }

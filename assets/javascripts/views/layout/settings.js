@@ -6,7 +6,7 @@ ref = app.views.Settings = (function() {
 
   class Settings extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.onChange = this.onChange.bind(this);
       this.onEnter = this.onEnter.bind(this);
       this.onSubmit = this.onSubmit.bind(this);

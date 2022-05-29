@@ -412,7 +412,7 @@ $.extend(app.Searcher.prototype, Events);
 
 ref = app.SynchronousSearcher = class SynchronousSearcher extends app.Searcher {
   constructor() {
-    super(...arguments);
+    super();
     this.match = this.match.bind(this);
   }
 

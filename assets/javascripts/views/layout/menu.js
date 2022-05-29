@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Menu = (function() {
   class Menu extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.onGlobalClick = this.onGlobalClick.bind(this);
     }
 

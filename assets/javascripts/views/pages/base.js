@@ -3,9 +3,8 @@ var ref,
 
 ref = app.views.BasePage = class BasePage extends app.View {
   constructor(el1, entry) {
-    super(arguments);
+    super(el1);
     this.paintCode = this.paintCode.bind(this);
-    this.el = el1;
     this.entry = entry;
   }
 

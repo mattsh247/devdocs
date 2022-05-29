@@ -4,7 +4,7 @@ var isPointerEventsSupported, ref,
 ref = app.views.SidebarHover = (function() {
   class SidebarHover extends app.View {
     constructor(el1) {
-      super(arguments);
+      super(el1);
       this.position = this.position.bind(this);
       this.onFocus = this.onFocus.bind(this);
       this.onBlur = this.onBlur.bind(this);
@@ -13,7 +13,6 @@ ref = app.views.SidebarHover = (function() {
       this.onScroll = this.onScroll.bind(this);
       this.onClick = this.onClick.bind(this);
       this.onRoute = this.onRoute.bind(this);
-      this.el = el1;
       if (!isPointerEventsSupported()) {
         delete this.constructor.events.mouseover;
       }

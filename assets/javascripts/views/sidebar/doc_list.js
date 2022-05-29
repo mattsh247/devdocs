@@ -4,7 +4,7 @@ var ref,
 ref = app.views.DocList = (function() {
   class DocList extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.render = this.render.bind(this);
       this.onOpen = this.onOpen.bind(this);
       this.onClose = this.onClose.bind(this);

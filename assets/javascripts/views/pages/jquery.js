@@ -5,7 +5,7 @@ var ref,
 ref = app.views.JqueryPage = (function() {
   class JqueryPage extends app.views.BasePage {
     constructor() {
-      super(...arguments);
+      super();
       this.onIframeLoaded = this.onIframeLoaded.bind(this);
     }
 

@@ -5,7 +5,7 @@ var ref,
 ref = app.views.SqlitePage = (function() {
   class SqlitePage extends app.views.BasePage {
     constructor() {
-      super(...arguments);
+      super();
       this.onClick = this.onClick.bind(this);
     }
 

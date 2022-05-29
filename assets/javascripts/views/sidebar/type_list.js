@@ -4,7 +4,7 @@ var ref,
 ref = app.views.TypeList = (function() {
   class TypeList extends app.View {
     constructor(doc) {
-      super(arguments);
+      super();
       this.onOpen = this.onOpen.bind(this);
       this.onClose = this.onClose.bind(this);
       this.doc = doc;

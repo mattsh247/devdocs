@@ -10,7 +10,7 @@ ref = app.views.Search = function () {
 
   class Search extends app.View {
     constructor() {
-      super(...arguments);
+      super();
       this.focus = this.focus.bind(this);
       this.autoFocus = this.autoFocus.bind(this);
       this.onWindowFocus = this.onWindowFocus.bind(this);
