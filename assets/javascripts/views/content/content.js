@@ -3,10 +3,26 @@ var ref,
 
 ref = app.views.Content = (function() {
   class Content extends app.View {
+    constructor() {
+      super(...arguments);
+      this.scrollToTop = this.scrollToTop.bind(this);
+      this.scrollToBottom = this.scrollToBottom.bind(this);
+      this.scrollStepUp = this.scrollStepUp.bind(this);
+      this.scrollStepDown = this.scrollStepDown.bind(this);
+      this.scrollPageUp = this.scrollPageUp.bind(this);
+      this.scrollPageDown = this.scrollPageDown.bind(this);
+      this.onReady = this.onReady.bind(this);
+      this.onBootError = this.onBootError.bind(this);
+      this.onEntryLoading = this.onEntryLoading.bind(this);
+      this.onEntryLoaded = this.onEntryLoaded.bind(this);
+      this.beforeRoute = this.beforeRoute.bind(this);
+      this.afterRoute = this.afterRoute.bind(this);
+      this.onClick = this.onClick.bind(this);
+      this.onAltF = this.onAltF.bind(this);
+    }
+
     init() {
-      this.scrollEl = app.isMobile()
-        ? document.scrollingElement || document.body
-        : this.el;
+      this.scrollEl = app.isMobile() ? document.scrollingElement || document.body : this.el;
       this.scrollMap = {};
       this.scrollStack = [];
       this.rootPage = new app.views.RootPage();
@@ -15,10 +31,8 @@ ref = app.views.Content = (function() {
       this.offlinePage = new app.views.OfflinePage();
       this.typePage = new app.views.TypePage();
       this.entryPage = new app.views.EntryPage();
-      this.entryPage
-        .on("loading", this.onEntryLoading)
-        .on("loaded", this.onEntryLoaded);
-      app.on("ready", this.onReady).on("bootError", this.onBootError);
+      this.entryPage.on('loading', this.onEntryLoading).on('loaded', this.onEntryLoaded);
+      app.on('ready', this.onReady).on('bootError', this.onBootError);
     }
 
     show(view) {
@@ -28,7 +42,7 @@ ref = app.views.Content = (function() {
         if ((ref1 = this.view) != null) {
           ref1.deactivate();
         }
-        this.html((this.view = view));
+        this.html(this.view = view);
         this.view.activate();
       }
     }
@@ -50,7 +64,7 @@ ref = app.views.Content = (function() {
     }
 
     smoothScrollTo(value) {
-      if (app.settings.get("fastScroll")) {
+      if (app.settings.get('fastScroll')) {
         this.scrollTo(value);
       } else {
         $.smoothScroll(this.scrollEl, value || 0);
@@ -93,15 +107,12 @@ ref = app.views.Content = (function() {
 
     scrollToTarget() {
       var el;
-      if (
-        this.routeCtx.hash &&
-        (el = this.findTargetByHash(this.routeCtx.hash))
-      ) {
-        $.scrollToWithImageLock(el, this.scrollEl, "top", {
-          margin: this.scrollEl === this.el ? 0 : $.offset(this.el).top,
+      if (this.routeCtx.hash && (el = this.findTargetByHash(this.routeCtx.hash))) {
+        $.scrollToWithImageLock(el, this.scrollEl, 'top', {
+          margin: this.scrollEl === this.el ? 0 : $.offset(this.el).top
         });
         $.highlight(el, {
-          className: "_highlight",
+          className: '_highlight'
         });
       } else {
         this.scrollTo(this.scrollMap[this.routeCtx.state.id]);
@@ -116,7 +127,7 @@ ref = app.views.Content = (function() {
     onBootError() {
       boundMethodCheck(this, ref);
       this.hideLoading();
-      this.html(this.tmpl("bootError"));
+      this.html(this.tmpl('bootError'));
     }
 
     onEntryLoading() {
@@ -149,7 +160,7 @@ ref = app.views.Content = (function() {
       if (!this.routeCtx || this.routeCtx.hash) {
         return;
       }
-      if (this.routeCtx.path === "/") {
+      if (this.routeCtx.path === '/') {
         return;
       }
       if (this.scrollMap[this.routeCtx.state.id] == null) {
@@ -164,41 +175,37 @@ ref = app.views.Content = (function() {
     afterRoute(route, context) {
       var base;
       boundMethodCheck(this, ref);
-      if (route !== "entry" && route !== "type") {
+      if (route !== 'entry' && route !== 'type') {
         resetFavicon();
       }
       switch (route) {
-        case "root":
+        case 'root':
           this.show(this.rootPage);
           break;
-        case "entry":
+        case 'entry':
           this.show(this.entryPage);
           break;
-        case "type":
+        case 'type':
           this.show(this.typePage);
           break;
-        case "settings":
+        case 'settings':
           this.show(this.settingsPage);
           break;
-        case "offline":
+        case 'offline':
           this.show(this.offlinePage);
           break;
         default:
           this.show(this.staticPage);
       }
       this.view.onRoute(context);
-      app.document.setTitle(
-        typeof (base = this.view).getTitle === "function"
-          ? base.getTitle()
-          : void 0
-      );
+      app.document.setTitle(typeof (base = this.view).getTitle === "function" ? base.getTitle() : void 0);
     }
 
     onClick(event) {
       var link;
       boundMethodCheck(this, ref);
       link = $.closestLink($.eventTarget(event), this.el);
-      if (link && this.isExternalUrl(link.getAttribute("href"))) {
+      if (link && this.isExternalUrl(link.getAttribute('href'))) {
         $.stopEvent(event);
         $.popup(link);
       }
@@ -207,10 +214,8 @@ ref = app.views.Content = (function() {
     onAltF(event) {
       var ref1;
       boundMethodCheck(this, ref);
-      if (
-        !(document.activeElement && $.hasChild(this.el, document.activeElement))
-      ) {
-        if ((ref1 = this.find("a:not(:empty)")) != null) {
+      if (!(document.activeElement && $.hasChild(this.el, document.activeElement))) {
+        if ((ref1 = this.find('a:not(:empty)')) != null) {
           ref1.focus();
         }
         return $.stopEvent(event);
@@ -219,27 +224,28 @@ ref = app.views.Content = (function() {
 
     findTargetByHash(hash) {
       var el;
-      el = (function () {
+      el = (function() {
         try {
           return $.id(decodeURIComponent(hash));
-        } catch (error) {}
+        } catch (error) {
+
+        }
       })();
-      el ||
-        (el = (function () {
-          try {
-            return $.id(hash);
-          } catch (error) {}
-        })());
+      el || (el = (function() {
+        try {
+          return $.id(hash);
+        } catch (error) {
+
+        }
+      })());
       return el;
     }
 
     isExternalUrl(url) {
       var ref1;
-      return (
-        (ref1 = url != null ? url.slice(0, 6) : void 0) === "http:/" ||
-        ref1 === "https:"
-      );
+      return (ref1 = url != null ? url.slice(0, 6) : void 0) === 'http:/' || ref1 === 'https:';
     }
+
   };
 
   Content.el = '._content';

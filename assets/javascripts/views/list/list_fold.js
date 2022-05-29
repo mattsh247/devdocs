@@ -4,10 +4,11 @@ var ref,
 ref = app.views.ListFold = (function() {
   class ListFold extends app.View {
     constructor(el1) {
-      super(el1);
+      super(arguments);
       this.onLeft = this.onLeft.bind(this);
       this.onRight = this.onRight.bind(this);
       this.onClick = this.onClick.bind(this);
+      this.el = el1;
     }
 
     open(el) {

@@ -4,7 +4,7 @@ var ref,
 ref = app.views.DocPicker = (function() {
   class DocPicker extends app.View {
     constructor() {
-      super();
+      super(...arguments);
       this.onMouseDown = this.onMouseDown.bind(this);
       this.onMouseUp = this.onMouseUp.bind(this);
       this.onDOMFocus = this.onDOMFocus.bind(this);

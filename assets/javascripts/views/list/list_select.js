@@ -4,8 +4,9 @@ var ref,
 ref = app.views.ListSelect = (function() {
   class ListSelect extends app.View {
     constructor(el1) {
-      super(el1);
+      super(arguments);
       this.onClick = this.onClick.bind(this);
+      this.el = el1;
     }
 
     deactivate() {

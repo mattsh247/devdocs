@@ -25,7 +25,7 @@ ref = app.views.Mobile = (function() {
     }
 
     constructor() {
-      super(document.documentElement);
+      super(arguments);
       this.showSidebar = this.showSidebar.bind(this);
       this.hideSidebar = this.hideSidebar.bind(this);
       this.onClickBack = this.onClickBack.bind(this);
@@ -36,6 +36,7 @@ ref = app.views.Mobile = (function() {
       this.onTapSearch = this.onTapSearch.bind(this);
       this.onEscape = this.onEscape.bind(this);
       this.afterRoute = this.afterRoute.bind(this);
+      this.el = document.documentElement;
     }
 
     init() {

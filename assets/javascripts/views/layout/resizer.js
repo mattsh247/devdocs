@@ -6,7 +6,7 @@ ref = app.views.Resizer = (function() {
 
   class Resizer extends app.View {
     constructor() {
-      super();
+      super(...arguments);
       this.onDragStart = this.onDragStart.bind(this);
       this.onDrag = this.onDrag.bind(this);
       this.onDragEnd = this.onDragEnd.bind(this);

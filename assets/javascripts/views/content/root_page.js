@@ -4,7 +4,7 @@ var ref,
 ref = app.views.RootPage = (function() {
   class RootPage extends app.View {
     constructor() {
-      super();
+      super(...arguments);
       this.onClick = this.onClick.bind(this);
     }
 

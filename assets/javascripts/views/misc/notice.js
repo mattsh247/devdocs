@@ -1,7 +1,7 @@
 app.views.Notice = (function() {
   class Notice extends app.View {
     constructor(type, ...args) {
-      super();
+      super(arguments);
       this.type = type;
       this.args = args;
     }

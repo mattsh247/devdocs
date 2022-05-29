@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Document = (function() {
   class Document extends app.View {
     constructor() {
-      super();
+      super(...arguments);
       this.afterRoute = this.afterRoute.bind(this);
       this.onVisibilityChange = this.onVisibilityChange.bind(this);
     }

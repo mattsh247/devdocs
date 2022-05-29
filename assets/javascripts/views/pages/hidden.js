@@ -4,8 +4,9 @@ var ref,
 ref = app.views.HiddenPage = (function() {
   class HiddenPage extends app.View {
     constructor(el, entry) {
-      super(el);
+      super(arguments);
       this.onClick = this.onClick.bind(this);
+      this.el = el;
       this.entry = entry;
     }
 

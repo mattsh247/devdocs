@@ -7,7 +7,7 @@ ref = app.views.PaginatedList = (function() {
   class PaginatedList extends app.View {
     constructor(data) {
       var base, base1;
-      super();
+      super(arguments);
       this.onClick = this.onClick.bind(this);
       this.data = data;
       if ((base = ((base1 = this.constructor).events || (base1.events = {}))).click == null) {

@@ -4,7 +4,7 @@ var ref,
 ref = app.views.Results = (function() {
   class Results extends app.View {
     constructor(sidebar, search) {
-      super();
+      super(arguments);
       this.onResults = this.onResults.bind(this);
       this.onNoResults = this.onNoResults.bind(this);
       this.onClear = this.onClear.bind(this);
