@@ -9,28 +9,13 @@
   let SEARCH_PARAM = undefined;
   let HASH_RGX = undefined;
   app.views.Search = class Search extends app.View {
-    constructor(...args) {
-      super(...args);
-      this.focus = this.focus.bind(this);
-      this.autoFocus = this.autoFocus.bind(this);
-      this.onWindowFocus = this.onWindowFocus.bind(this);
-      this.onReady = this.onReady.bind(this);
-      this.onInput = this.onInput.bind(this);
-      this.searchUrl = this.searchUrl.bind(this);
-      this.google = this.google.bind(this);
-      this.stackoverflow = this.stackoverflow.bind(this);
-      this.duckduckgo = this.duckduckgo.bind(this);
-      this.onResults = this.onResults.bind(this);
-      this.onEnd = this.onEnd.bind(this);
-      this.onClick = this.onClick.bind(this);
-      this.onScopeChange = this.onScopeChange.bind(this);
-      this.afterRoute = this.afterRoute.bind(this);
+    constructor() {
+      super("._search");
     }
 
     static initClass() {
       SEARCH_PARAM = app.config.search_param;
 
-      this.el = "._search";
       this.activeClass = "_search-active";
 
       this.elements = {
@@ -57,6 +42,21 @@
     }
 
     init() {
+      this.focus = this.focus.bind(this);
+      this.autoFocus = this.autoFocus.bind(this);
+      this.onWindowFocus = this.onWindowFocus.bind(this);
+      this.onReady = this.onReady.bind(this);
+      this.onInput = this.onInput.bind(this);
+      this.searchUrl = this.searchUrl.bind(this);
+      this.google = this.google.bind(this);
+      this.stackoverflow = this.stackoverflow.bind(this);
+      this.duckduckgo = this.duckduckgo.bind(this);
+      this.onResults = this.onResults.bind(this);
+      this.onEnd = this.onEnd.bind(this);
+      this.onClick = this.onClick.bind(this);
+      this.onScopeChange = this.onScopeChange.bind(this);
+      this.afterRoute = this.afterRoute.bind(this);
+
       this.addSubview((this.scope = new app.views.SearchScope(this.el)));
 
       this.searcher = new app.Searcher();

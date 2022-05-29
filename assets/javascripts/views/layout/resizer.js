@@ -8,11 +8,8 @@
   let MIN = undefined;
   let MAX = undefined;
   app.views.Resizer = class Resizer extends app.View {
-    constructor(...args) {
-      super(...args);
-      this.onDragStart = this.onDragStart.bind(this);
-      this.onDrag = this.onDrag.bind(this);
-      this.onDragEnd = this.onDragEnd.bind(this);
+    constructor() {
+      super();
     }
 
     static initClass() {
@@ -32,6 +29,10 @@
     }
 
     init() {
+      this.onDragStart = this.onDragStart.bind(this);
+      this.onDrag = this.onDrag.bind(this);
+      this.onDragEnd = this.onDragEnd.bind(this);
+
       this.el.setAttribute("draggable", "true");
       this.appendTo($("._app"));
     }

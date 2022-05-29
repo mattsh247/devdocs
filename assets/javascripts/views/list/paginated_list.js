@@ -15,15 +15,14 @@
     }
 
     constructor(data) {
-      super(...arguments);
-      let base;
+      super(undefined, { data, entries: data });
+    }
+
+    init() {
       this.onClick = this.onClick.bind(this);
-      this.data = data;
-      if (
-        (base = this.constructor.events || (this.constructor.events = {}))
-          .click == null
-      ) {
-        base.click = "onClick";
+      this.constructor.events = this.constructor.events || {};
+      if (this.constructor.events.click == null) {
+        this.constructor.events.click = "onClick";
       }
     }
 

@@ -16,17 +16,13 @@ app.views.Notif = class Notif extends app.View {
   }
 
   constructor(type, options) {
-    super(...arguments);
-    this.onClick = this.onClick.bind(this);
-    this.type = type;
-    if (options == null) {
-      options = {};
-    }
-    this.options = options;
-    this.options = $.extend({}, this.constructor.defautOptions, this.options);
+    super(undefined, { type, options: options || {} });
   }
 
   init() {
+    this.onClick = this.onClick.bind(this);
+    this.options = $.extend({}, this.constructor.defautOptions, this.options);
+
     this.show();
   }
 

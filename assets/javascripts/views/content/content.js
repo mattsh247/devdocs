@@ -9,22 +9,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.Content = class Content extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.scrollToTop = this.scrollToTop.bind(this);
-    this.scrollToBottom = this.scrollToBottom.bind(this);
-    this.scrollStepUp = this.scrollStepUp.bind(this);
-    this.scrollStepDown = this.scrollStepDown.bind(this);
-    this.scrollPageUp = this.scrollPageUp.bind(this);
-    this.scrollPageDown = this.scrollPageDown.bind(this);
-    this.onReady = this.onReady.bind(this);
-    this.onBootError = this.onBootError.bind(this);
-    this.onEntryLoading = this.onEntryLoading.bind(this);
-    this.onEntryLoaded = this.onEntryLoaded.bind(this);
-    this.beforeRoute = this.beforeRoute.bind(this);
-    this.afterRoute = this.afterRoute.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.onAltF = this.onAltF.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -50,6 +36,21 @@ app.views.Content = class Content extends app.View {
   }
 
   init() {
+    this.scrollToTop = this.scrollToTop.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.scrollStepUp = this.scrollStepUp.bind(this);
+    this.scrollStepDown = this.scrollStepDown.bind(this);
+    this.scrollPageUp = this.scrollPageUp.bind(this);
+    this.scrollPageDown = this.scrollPageDown.bind(this);
+    this.onReady = this.onReady.bind(this);
+    this.onBootError = this.onBootError.bind(this);
+    this.onEntryLoading = this.onEntryLoading.bind(this);
+    this.onEntryLoaded = this.onEntryLoaded.bind(this);
+    this.beforeRoute = this.beforeRoute.bind(this);
+    this.afterRoute = this.afterRoute.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onAltF = this.onAltF.bind(this);
+
     this.scrollEl = app.isMobile()
       ? document.scrollingElement || document.body
       : this.el;

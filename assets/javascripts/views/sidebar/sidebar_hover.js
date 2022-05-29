@@ -22,7 +22,10 @@ app.views.SidebarHover = class SidebarHover extends app.View {
   }
 
   constructor(el) {
-    super(...arguments);
+    super(el);
+  }
+
+  init() {
     this.position = this.position.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
@@ -31,7 +34,6 @@ app.views.SidebarHover = class SidebarHover extends app.View {
     this.onScroll = this.onScroll.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onRoute = this.onRoute.bind(this);
-    this.el = el;
     if (!isPointerEventsSupported()) {
       delete this.constructor.events.mouseover;
     }

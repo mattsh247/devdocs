@@ -52,6 +52,9 @@ app.views.Mobile = class Mobile extends app.View {
 
   constructor() {
     super(document.documentElement);
+  }
+
+  init() {
     this.showSidebar = this.showSidebar.bind(this);
     this.hideSidebar = this.hideSidebar.bind(this);
     this.onClickBack = this.onClickBack.bind(this);
@@ -62,10 +65,7 @@ app.views.Mobile = class Mobile extends app.View {
     this.onTapSearch = this.onTapSearch.bind(this);
     this.onEscape = this.onEscape.bind(this);
     this.afterRoute = this.afterRoute.bind(this);
-    this.el = document.documentElement;
-  }
 
-  init() {
     $.on($("._search"), "touchend", this.onTapSearch);
 
     this.toggleSidebar = $("button[data-toggle-sidebar]");

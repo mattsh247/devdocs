@@ -7,11 +7,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.DocPicker = class DocPicker extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.onMouseDown = this.onMouseDown.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onDOMFocus = this.onDOMFocus.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -24,6 +21,10 @@ app.views.DocPicker = class DocPicker extends app.View {
   }
 
   init() {
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+    this.onDOMFocus = this.onDOMFocus.bind(this);
+
     this.addSubview((this.listFold = new app.views.ListFold(this.el)));
   }
 

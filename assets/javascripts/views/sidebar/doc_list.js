@@ -6,14 +6,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.DocList = class DocList extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.render = this.render.bind(this);
-    this.onOpen = this.onOpen.bind(this);
-    this.onClose = this.onClose.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.onEnabled = this.onEnabled.bind(this);
-    this.afterRoute = this.afterRoute.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -35,6 +29,13 @@ app.views.DocList = class DocList extends app.View {
   }
 
   init() {
+    this.render = this.render.bind(this);
+    this.onOpen = this.onOpen.bind(this);
+    this.onClose = this.onClose.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onEnabled = this.onEnabled.bind(this);
+    this.afterRoute = this.afterRoute.bind(this);
+
     this.lists = {};
 
     this.addSubview((this.listFocus = new app.views.ListFocus(this.el)));

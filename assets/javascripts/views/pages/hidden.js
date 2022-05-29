@@ -9,13 +9,12 @@ app.views.HiddenPage = class HiddenPage extends app.View {
   }
 
   constructor(el, entry) {
-    super(el);
-    this.onClick = this.onClick.bind(this);
-    this.el = el;
-    this.entry = entry;
+    super(el, { entry });
   }
 
   init() {
+    this.onClick = this.onClick.bind(this);
+
     this.addSubview((this.notice = new app.views.Notice("disabledDoc")));
     this.activate();
   }

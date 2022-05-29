@@ -7,10 +7,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.SettingsPage = class SettingsPage extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -20,6 +18,11 @@ app.views.SettingsPage = class SettingsPage extends app.View {
       click: "onClick",
       change: "onChange",
     };
+  }
+
+  init() {
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   render() {

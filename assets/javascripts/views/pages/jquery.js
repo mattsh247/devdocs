@@ -8,13 +8,16 @@
 //= require views/pages/base
 
 app.views.JqueryPage = class JqueryPage extends app.views.BasePage {
-  constructor(...args) {
-    super(...args);
-    this.onIframeLoaded = this.onIframeLoaded.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
     this.demoClassName = "_jquery-demo";
+  }
+
+  init() {
+    this.onIframeLoaded = this.onIframeLoaded.bind(this);
   }
 
   afterRender() {

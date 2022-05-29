@@ -5,10 +5,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.Document = class Document extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.afterRoute = this.afterRoute.bind(this);
-    this.onVisibilityChange = this.onVisibilityChange.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -28,6 +26,9 @@ app.views.Document = class Document extends app.View {
   }
 
   init() {
+    this.afterRoute = this.afterRoute.bind(this);
+    this.onVisibilityChange = this.onVisibilityChange.bind(this);
+
     this.addSubview(
       (this.menu = new app.views.Menu()),
       this.addSubview((this.sidebar = new app.views.Sidebar()))

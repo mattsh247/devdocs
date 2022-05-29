@@ -6,13 +6,16 @@
 //= require views/pages/base
 
 app.views.SqlitePage = class SqlitePage extends app.views.BasePage {
-  constructor(...args) {
-    super(...args);
-    this.onClick = this.onClick.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
     this.events = { click: "onClick" };
+  }
+
+  init() {
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick(event) {

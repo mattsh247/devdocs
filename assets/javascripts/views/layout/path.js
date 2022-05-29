@@ -5,10 +5,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.Path = class Path extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.onClick = this.onClick.bind(this);
-    this.afterRoute = this.afterRoute.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -18,6 +16,11 @@ app.views.Path = class Path extends app.View {
     this.events = { click: "onClick" };
 
     this.routes = { after: "afterRoute" };
+  }
+
+  init() {
+    this.onClick = this.onClick.bind(this);
+    this.afterRoute = this.afterRoute.bind(this);
   }
 
   render(...args) {

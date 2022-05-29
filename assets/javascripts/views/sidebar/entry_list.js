@@ -13,8 +13,7 @@ app.views.EntryList = class EntryList extends app.views.PaginatedList {
   }
 
   constructor(entries) {
-    super();
-    this.entries = entries;
+    super(entries);
   }
 
   init() {

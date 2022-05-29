@@ -6,21 +6,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.Sidebar = class Sidebar extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.resetHoverOnMouseMove = this.resetHoverOnMouseMove.bind(this);
-    this.resetHover = this.resetHover.bind(this);
-    this.showResults = this.showResults.bind(this);
-    this.onReady = this.onReady.bind(this);
-    this.onScopeChange = this.onScopeChange.bind(this);
-    this.onSearching = this.onSearching.bind(this);
-    this.onSearchClear = this.onSearchClear.bind(this);
-    this.onFocus = this.onFocus.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.onAltR = this.onAltR.bind(this);
-    this.onEscape = this.onEscape.bind(this);
-    this.afterRoute = this.afterRoute.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -41,6 +28,20 @@ app.views.Sidebar = class Sidebar extends app.View {
   }
 
   init() {
+    this.resetHoverOnMouseMove = this.resetHoverOnMouseMove.bind(this);
+    this.resetHover = this.resetHover.bind(this);
+    this.showResults = this.showResults.bind(this);
+    this.onReady = this.onReady.bind(this);
+    this.onScopeChange = this.onScopeChange.bind(this);
+    this.onSearching = this.onSearching.bind(this);
+    this.onSearchClear = this.onSearchClear.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.onSelect = this.onSelect.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onAltR = this.onAltR.bind(this);
+    this.onEscape = this.onEscape.bind(this);
+    this.afterRoute = this.afterRoute.bind(this);
+
     if (!app.isMobile()) {
       this.addSubview((this.hover = new app.views.SidebarHover(this.el)));
     }

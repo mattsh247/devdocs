@@ -4,9 +4,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.Menu = class Menu extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.onGlobalClick = this.onGlobalClick.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -17,6 +16,8 @@ app.views.Menu = class Menu extends app.View {
   }
 
   init() {
+    this.onGlobalClick = this.onGlobalClick.bind(this);
+
     $.on(document.body, "click", this.onGlobalClick);
   }
 

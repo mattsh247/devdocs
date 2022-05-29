@@ -30,6 +30,9 @@
 
     constructor(el) {
       super(el);
+    }
+
+    init() {
       this.onResults = this.onResults.bind(this);
       this.reset = this.reset.bind(this);
       this.doScopeSearch = this.doScopeSearch.bind(this);
@@ -37,10 +40,7 @@
       this.onKeydown = this.onKeydown.bind(this);
       this.onTextInput = this.onTextInput.bind(this);
       this.afterRoute = this.afterRoute.bind(this);
-      this.el = el;
-    }
 
-    init() {
       this.placeholder = this.input.getAttribute("placeholder");
 
       this.searcher = new app.SynchronousSearcher({

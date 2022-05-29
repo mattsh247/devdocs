@@ -11,8 +11,12 @@ app.View = class View {
     $.extend(this.prototype, Events);
   }
 
-  constructor() {
-    this.setupElement();
+  constructor(el, fields = {}) {
+    this.setupElement(el);
+    for (let key in fields) {
+      const value = fields[key];
+      this[key] = value;
+    }
     if (this.el.className) {
       this.originalClassName = this.el.className;
     }
@@ -24,13 +28,13 @@ app.View = class View {
     this.refreshElements();
   }
 
-  setupElement() {
+  setupElement(el) {
     if (this.el == null) {
       this.el =
-        typeof this.constructor.el === "string"
-          ? $(this.constructor.el)
-          : this.constructor.el
-          ? this.constructor.el
+        typeof el === "string"
+          ? $(el)
+          : el instanceof Element
+          ? el
           : document.createElement(this.constructor.tagName || "div");
     }
 

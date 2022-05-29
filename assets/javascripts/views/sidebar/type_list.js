@@ -17,13 +17,13 @@ app.views.TypeList = class TypeList extends app.View {
   }
 
   constructor(doc) {
-    super(...arguments);
-    this.onOpen = this.onOpen.bind(this);
-    this.onClose = this.onClose.bind(this);
-    this.doc = doc;
+    super(undefined, { doc });
   }
 
   init() {
+    this.onOpen = this.onOpen.bind(this);
+    this.onClose = this.onClose.bind(this);
+
     this.lists = {};
     this.render();
     this.activate();

@@ -7,10 +7,11 @@
  */
 app.views.BasePage = class BasePage extends app.View {
   constructor(el, entry) {
-    super(el);
+    super(el, { entry });
+  }
+
+  init() {
     this.paintCode = this.paintCode.bind(this);
-    this.el = el;
-    this.entry = entry;
   }
 
   deactivate() {

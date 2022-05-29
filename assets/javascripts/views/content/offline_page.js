@@ -6,9 +6,8 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 app.views.OfflinePage = class OfflinePage extends app.View {
-  constructor(...args) {
-    super(...args);
-    this.onClick = this.onClick.bind(this);
+  constructor() {
+    super();
   }
 
   static initClass() {
@@ -18,6 +17,10 @@ app.views.OfflinePage = class OfflinePage extends app.View {
       click: "onClick",
       change: "onChange",
     };
+  }
+
+  init() {
+    this.onClick = this.onClick.bind(this);
   }
 
   deactivate() {

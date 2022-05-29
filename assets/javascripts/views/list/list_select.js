@@ -13,8 +13,10 @@ app.views.ListSelect = class ListSelect extends app.View {
 
   constructor(el) {
     super(el);
+  }
+
+  init() {
     this.onClick = this.onClick.bind(this);
-    this.el = el;
   }
 
   deactivate() {

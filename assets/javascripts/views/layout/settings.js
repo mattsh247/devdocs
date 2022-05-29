@@ -10,13 +10,8 @@
 (function () {
   let SIDEBAR_HIDDEN_LAYOUT = undefined;
   app.views.Settings = class Settings extends app.View {
-    constructor(...args) {
-      super(...args);
-      this.onChange = this.onChange.bind(this);
-      this.onEnter = this.onEnter.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
-      this.onImport = this.onImport.bind(this);
-      this.onClick = this.onClick.bind(this);
+    constructor() {
+      super();
     }
 
     static initClass() {
@@ -41,6 +36,12 @@
     }
 
     init() {
+      this.onChange = this.onChange.bind(this);
+      this.onEnter = this.onEnter.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+      this.onImport = this.onImport.bind(this);
+      this.onClick = this.onClick.bind(this);
+
       this.addSubview((this.docPicker = new app.views.DocPicker()));
     }
 
