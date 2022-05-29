@@ -1,8 +1,8 @@
 class app.views.BasePage extends app.View
-  constructor: (@el, @entry) -> super(arguments)
+  constructor: (@el, @entry) -> super
 
   deactivate: ->
-    if super.deactivate()
+    if super
       @highlightNodes = []
 
   render: (content, fromCache = false) ->

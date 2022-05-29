@@ -13,9 +13,9 @@ class app.views.SidebarHover extends app.View
     after: 'onRoute'
 
   constructor: (@el) ->
-    super(arguments)
     unless isPointerEventsSupported()
       delete @constructor.events.mouseover
+    super
 
   show: (el) ->
     unless el is @cursor

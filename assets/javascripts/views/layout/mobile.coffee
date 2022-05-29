@@ -34,8 +34,8 @@ class app.views.Mobile extends app.View
       false
 
   constructor: ->
-    super(arguments)
     @el = document.documentElement
+    super
 
   init: ->
     $.on $('._search'), 'touchend', @onTapSearch

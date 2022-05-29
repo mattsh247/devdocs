@@ -10,7 +10,7 @@ class app.views.ListFold extends app.View
     left:   'onLeft'
     right:  'onRight'
 
-  constructor: (@el) -> super(arguments)
+  constructor: (@el) -> super
 
   open: (el) ->
     if el and not el.classList.contains @constructor.activeClass

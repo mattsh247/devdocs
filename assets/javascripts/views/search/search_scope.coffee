@@ -13,7 +13,7 @@ class app.views.SearchScope extends app.View
   @routes:
     after: 'afterRoute'
 
-  constructor: (@el) -> super(arguments)
+  constructor: (@el) -> super
 
   init: ->
     @placeholder = @input.getAttribute 'placeholder'

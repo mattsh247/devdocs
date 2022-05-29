@@ -10,13 +10,13 @@ class app.views.DocPicker extends app.View
     return
 
   activate: ->
-    if super.activate()
+    if super
       @render()
       $.on @el, 'focus', @onDOMFocus, true
     return
 
   deactivate: ->
-    if super.deactivate()
+    if super
       @empty()
       $.off @el, 'focus', @onDOMFocus, true
       @focusEl = null
@@ -52,7 +52,7 @@ class app.views.DocPicker extends app.View
 
   empty: ->
     @resetClass()
-    super.empty()
+    super
     return
 
   getSelectedDocs: ->

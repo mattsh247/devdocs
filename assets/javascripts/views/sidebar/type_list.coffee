@@ -6,7 +6,7 @@ class app.views.TypeList extends app.View
     open:  'onOpen'
     close: 'onClose'
 
-  constructor: (@doc) -> super(arguments)
+  constructor: (@doc) -> super
 
   init: ->
     @lists = {}
@@ -15,12 +15,12 @@ class app.views.TypeList extends app.View
     return
 
   activate: ->
-    if super.activate()
+    if super
       list.activate() for slug, list of @lists
     return
 
   deactivate: ->
-    if super.deactivate()
+    if super
       list.deactivate() for slug, list of @lists
     return
 

@@ -6,7 +6,7 @@ class app.views.OfflinePage extends app.View
     change: 'onChange'
 
   deactivate: ->
-    if super.deactivate()
+    if super
       @empty()
     return
 

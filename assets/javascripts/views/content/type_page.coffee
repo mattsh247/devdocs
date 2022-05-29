@@ -2,7 +2,7 @@ class app.views.TypePage extends app.View
   @className: '_page'
 
   deactivate: ->
-    if super.deactivate()
+    if super
       @empty()
       @type = null
     return
