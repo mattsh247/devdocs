@@ -2,7 +2,7 @@ class app.views.HiddenPage extends app.View
   @events:
     click: 'onClick'
 
-  constructor: (@el, @entry) -> super
+  constructor: (@el, @entry) -> super(arguments)
 
   init: ->
     @addSubview @notice = new app.views.Notice 'disabledDoc'

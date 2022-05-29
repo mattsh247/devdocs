@@ -7,10 +7,10 @@ class app.views.Results extends app.View
   @routes:
     after: 'afterRoute'
 
-  constructor: (@sidebar, @search) -> super
+  constructor: (@sidebar, @search) -> super(arguments)
 
   deactivate: ->
-    if super
+    if super.deactivate()
       @empty()
     return
 

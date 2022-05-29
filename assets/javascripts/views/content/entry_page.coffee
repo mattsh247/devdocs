@@ -18,7 +18,7 @@ class app.views.EntryPage extends app.View
     return
 
   deactivate: ->
-    if super
+    if super.deactivate()
       @empty()
       @entry = null
     return
@@ -83,7 +83,7 @@ class app.views.EntryPage extends app.View
     @hiddenView = null
 
     @resetClass()
-    super
+    super().empty()
     return
 
   subViewClass: ->

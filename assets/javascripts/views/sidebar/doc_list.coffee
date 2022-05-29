@@ -26,13 +26,13 @@ class app.views.DocList extends app.View
     return
 
   activate: ->
-    if super
+    if super.activate()
       list.activate() for slug, list of @lists
       @listSelect.selectCurrent()
     return
 
   deactivate: ->
-    if super
+    if super.deactivate()
       list.deactivate() for slug, list of @lists
     return
 

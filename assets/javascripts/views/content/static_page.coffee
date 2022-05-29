@@ -8,7 +8,7 @@ class app.views.StaticPage extends app.View
     notFound: '404'
 
   deactivate: ->
-    if super
+    if super.deactivate()
       @empty()
       @page = null
     return

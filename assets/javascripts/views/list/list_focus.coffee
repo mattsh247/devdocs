@@ -13,7 +13,7 @@ class app.views.ListFocus extends app.View
     escape:     'blur'
 
   constructor: (@el) ->
-    super
+    super(arguments)
     @focusOnNextFrame = $.framify(@focus, @)
 
   focus: (el, options = {}) ->

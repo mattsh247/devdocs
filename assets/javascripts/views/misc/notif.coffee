@@ -11,8 +11,8 @@ class app.views.Notif extends app.View
     click: 'onClick'
 
   constructor: (@type, @options = {}) ->
+    super(arguments)
     @options = $.extend {}, @constructor.defautOptions, @options
-    super
 
   init: ->
     @show()

@@ -4,10 +4,10 @@ class app.views.ListSelect extends app.View
   @events:
     click: 'onClick'
 
-  constructor: (@el) -> super
+  constructor: (@el) -> super(arguments)
 
   deactivate: ->
-    @deselect() if super
+    @deselect() if super.deactivate()
     return
 
   select: (el) ->

@@ -22,13 +22,13 @@ class app.views.Settings extends app.View
     return
 
   activate: ->
-    if super
+    if super.activate()
       @render()
       document.body.classList.remove(SIDEBAR_HIDDEN_LAYOUT)
     return
 
   deactivate: ->
-    if super
+    if super.deactivate()
       @resetClass()
       @docPicker.detach()
       document.body.classList.add(SIDEBAR_HIDDEN_LAYOUT) if app.settings.hasLayout(SIDEBAR_HIDDEN_LAYOUT)

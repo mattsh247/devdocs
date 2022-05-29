@@ -2,8 +2,8 @@ class app.views.PaginatedList extends app.View
   PER_PAGE = app.config.max_results
 
   constructor: (@data) ->
+    super(arguments)
     (@constructor.events or= {}).click ?= 'onClick'
-    super
 
   renderPaginated: ->
     @page = 0

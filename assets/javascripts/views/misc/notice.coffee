@@ -3,18 +3,18 @@ class app.views.Notice extends app.View
   @attributes:
     role: 'alert'
 
-  constructor: (@type, @args...) -> super
+  constructor: (@type, @args...) -> super(arguments)
 
   init: ->
     @activate()
     return
 
   activate: ->
-    @show() if super
+    @show() if super.activate()
     return
 
   deactivate: ->
-    @hide() if super
+    @hide() if super.deactivate()
     return
 
   show: ->
