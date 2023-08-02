@@ -24,8 +24,6 @@ app.View = class View {
       this.resetClass();
     }
     this.refreshElements();
-    this.init?.();
-    this.refreshElements();
   }
 
   setupElement(el) {

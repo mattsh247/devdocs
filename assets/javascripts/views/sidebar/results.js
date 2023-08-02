@@ -15,6 +15,8 @@ app.views.Results = class Results extends app.View {
 
   constructor(sidebar, search) {
     super(undefined, { sidebar, search });
+    this.init();
+    this.refreshElements();
   }
 
   deactivate() {

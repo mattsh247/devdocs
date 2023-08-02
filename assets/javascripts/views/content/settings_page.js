@@ -9,6 +9,8 @@
 app.views.SettingsPage = class SettingsPage extends app.View {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

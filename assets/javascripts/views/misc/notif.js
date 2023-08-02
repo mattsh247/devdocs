@@ -17,6 +17,8 @@ app.views.Notif = class Notif extends app.View {
 
   constructor(type, options) {
     super(undefined, { type, options: options || {} });
+    this.init();
+    this.refreshElements();
   }
 
   init() {

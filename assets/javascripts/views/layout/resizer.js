@@ -10,7 +10,9 @@
   app.views.Resizer = class Resizer extends app.View {
     constructor() {
       super();
-    }
+      this.init();
+      this.refreshElements();
+      }
 
     static initClass() {
       this.className = "_resizer";

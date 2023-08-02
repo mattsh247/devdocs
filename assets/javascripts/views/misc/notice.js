@@ -12,6 +12,8 @@ app.views.Notice = class Notice extends app.View {
 
   constructor(type, ...rest) {
     super(undefined, { type, args: rest });
+    this.init();
+    this.refreshElements();
   }
 
   init() {

@@ -12,7 +12,9 @@
   app.views.Settings = class Settings extends app.View {
     constructor() {
       super();
-    }
+      this.init();
+      this.refreshElements();
+      }
 
     static initClass() {
       SIDEBAR_HIDDEN_LAYOUT = "_sidebar-hidden";

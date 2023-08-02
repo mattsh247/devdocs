@@ -20,6 +20,8 @@ app.views.ListFold = class ListFold extends app.View {
 
   constructor(el) {
     super(el);
+    this.init();
+    this.refreshElements();
   }
 
   init() {

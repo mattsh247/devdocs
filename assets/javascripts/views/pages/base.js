@@ -8,6 +8,8 @@
 app.views.BasePage = class BasePage extends app.View {
   constructor(el, entry) {
     super(el, { entry });
+    this.init();
+    this.refreshElements();
   }
 
   init() {

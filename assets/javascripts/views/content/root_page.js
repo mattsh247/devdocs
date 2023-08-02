@@ -8,6 +8,8 @@ app.views.RootPage = class RootPage extends app.View {
   constructor() {
     super();
     this.onClick = this.onClick.bind(this);
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

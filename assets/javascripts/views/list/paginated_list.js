@@ -16,7 +16,9 @@
 
     constructor(data) {
       super(undefined, { data, entries: data });
-    }
+      this.init();
+      this.refreshElements();
+      }
 
     init() {
       this.onClick = this.onClick.bind(this);

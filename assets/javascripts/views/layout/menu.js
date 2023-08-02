@@ -6,6 +6,8 @@
 app.views.Menu = class Menu extends app.View {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

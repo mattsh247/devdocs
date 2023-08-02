@@ -11,7 +11,9 @@
 app.views.Content = class Content extends app.View {
   constructor() {
     super();
-  }
+    this.init();
+    this.refreshElements();
+}
 
   static initClass() {
     this.el = "._content";

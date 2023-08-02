@@ -10,6 +10,8 @@ app.views.HiddenPage = class HiddenPage extends app.View {
 
   constructor(el, entry) {
     super(el, { entry });
+    this.init();
+    this.refreshElements();
   }
 
   init() {

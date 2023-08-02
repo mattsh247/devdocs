@@ -10,6 +10,8 @@
 app.views.JqueryPage = class JqueryPage extends app.views.BasePage {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

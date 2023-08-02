@@ -18,6 +18,8 @@ app.views.TypeList = class TypeList extends app.View {
 
   constructor(doc) {
     super(undefined, { doc });
+    this.init();
+    this.refreshElements();
   }
 
   init() {

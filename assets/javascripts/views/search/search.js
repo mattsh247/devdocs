@@ -11,6 +11,8 @@
   app.views.Search = class Search extends app.View {
     constructor() {
       super("._search");
+      this.init();
+      this.refreshElements();
     }
 
     static initClass() {
@@ -57,7 +59,8 @@
       this.onScopeChange = this.onScopeChange.bind(this);
       this.afterRoute = this.afterRoute.bind(this);
 
-      this.addSubview((this.scope = new app.views.SearchScope(this.el)));
+      this.scope = new app.views.SearchScope(this.el);
+      this.addSubview(this.scope);
 
       this.searcher = new app.Searcher();
       this.searcher.on("results", this.onResults).on("end", this.onEnd);

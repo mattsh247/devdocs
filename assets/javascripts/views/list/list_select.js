@@ -13,6 +13,8 @@ app.views.ListSelect = class ListSelect extends app.View {
 
   constructor(el) {
     super(el);
+    this.init();
+    this.refreshElements();
   }
 
   init() {

@@ -12,7 +12,9 @@
   app.views.EntryPage = class EntryPage extends app.View {
     constructor() {
       super();
-    }
+      this.init();
+      this.refreshElements();
+      }
 
     static initClass() {
       this.className = "_page";

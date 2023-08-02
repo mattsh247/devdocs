@@ -23,6 +23,8 @@ app.views.ListFocus = class ListFocus extends app.View {
 
   constructor(el) {
     super(el);
+    this.init();
+    this.refreshElements();
   }
 
   init() {

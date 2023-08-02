@@ -30,7 +30,9 @@
 
     constructor(el) {
       super(el);
-    }
+      this.init();
+      this.refreshElements();
+      }
 
     init() {
       this.onResults = this.onResults.bind(this);

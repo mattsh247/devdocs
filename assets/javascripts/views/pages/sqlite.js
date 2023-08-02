@@ -8,6 +8,8 @@
 app.views.SqlitePage = class SqlitePage extends app.views.BasePage {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

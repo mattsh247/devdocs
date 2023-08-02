@@ -8,6 +8,8 @@
 app.views.DocList = class DocList extends app.View {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {

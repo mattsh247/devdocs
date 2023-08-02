@@ -9,6 +9,12 @@
 //= require views/misc/notif
 
 app.views.Updates = class Updates extends app.views.Notif {
+  constructor() {
+    super(); // fixme
+    this.init();
+    this.refreshElements();
+  }
+
   static initClass() {
     this.className += " _notif-news";
 

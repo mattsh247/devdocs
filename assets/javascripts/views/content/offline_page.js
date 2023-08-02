@@ -8,6 +8,8 @@
 app.views.OfflinePage = class OfflinePage extends app.View {
   constructor() {
     super();
+    this.init();
+    this.refreshElements();
   }
 
   static initClass() {
